@@ -1,0 +1,47 @@
+[
+	{
+		"id": 0,
+		"title": "Monstera",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd1",
+		"stock": 25
+	},
+	{
+		"id": 1,
+		"title": "Malvón",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd2",
+		"stock": 25
+	},
+	{
+		"id": 2,
+		"title": "Cactus castillo",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd3",
+		"stock": 25
+	},
+	{
+		"id": 3,
+		"title": "Cola de mono",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd4",
+		"stock": 25
+	},
+	{
+		"id": 4,
+		"title": "Garra de oso",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd5",
+		"stock": 25
+	}
+]
