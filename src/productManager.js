@@ -5,13 +5,16 @@ class ProductManager {
     this.products = [];
     this.path=path;
   }
-  checkDB(){
+  async checkDB(){
     if(fs.existsSync(this.path)){
-      this.products = JSON.parse(fs.readFileSync(this.path,'utf-8'))
+      this.products = JSON.parse(await fs.promises.readFile(this.path,'utf-8'))
     }
   }
-  addProduct(title, description, price, thumbnail, code, stock){
-    this.checkDB()
+  async updateDB(){
+    await fs.promises.writeFile(this.path, JSON.stringify(this.products, null, '\t'))
+  }
+  async addProduct(title, description, price, thumbnail, code, stock){
+    await this.checkDB()
     const isInArray = this.products.some(product => product.code === code)
     if(isInArray === false && title && description && price && thumbnail && stock){
       this.products.push({
@@ -23,27 +26,27 @@ class ProductManager {
         code: code,
         stock: stock
       });
-      fs.writeFileSync(this.path, JSON.stringify(this.products, null, '\t'))
+      this.updateDB
       return "Producto agregado"
     }else{
       return "Producto repetido o faltan características"
     }
   }
-  getProducts(){
-    this.checkDB()
+  async getProducts(){
+    await this.checkDB()
     return this.products
   }
-  getProductById(id){
-    this.checkDB()
-    const productFound = this.products.find(product => product.id === id)
+  async getProductById(id){
+    await this.checkDB()
+    const productFound = this.products.find(product => product.id === parseInt(id))
     if (productFound){
       return productFound
     }else{
-      return "Not found"
+      return "Product not found"
     }
   }
-  updateProduct(id,title,description,price,thumbnail,code,stock){
-    this.checkDB()
+  async updateProduct(id,title,description,price,thumbnail,code,stock){
+    await this.checkDB()
     const indexFound = this.products.findIndex(product => product.id === id)
     if(indexFound !== -1){
       this.products[indexFound] = {
@@ -55,29 +58,23 @@ class ProductManager {
         code: code,
         stock:stock
       }
-      fs.writeFileSync(this.path, JSON.stringify(this.products, null, '\t'))
+      await this.updateDB()
       return "Producto actualizado"
     }else{
       return "Not found"
     }
   }
-  deleteProduct(id){
-    this.checkDB()
+  async deleteProduct(id){
+    await this.checkDB()
     const indexFound = this.products.findIndex(product => product.id === id)
     if(indexFound !== -1){
       this.products.splice(indexFound,indexFound+1)
-      fs.writeFileSync(this.path, JSON.stringify(this.products, null, '\t'))
+      await this.updateDB()
       return "Producto eliminado"
     }else{
       return "Not found"
     }
   }
 }
-const productManager = new ProductManager("./products.json");
+export const productManager = new ProductManager("./products.json");
 
-console.log(productManager.getProducts());
-console.log(productManager.addProduct("producto prueba","Este es un producto prueba", 200, "Sin imagen","asd1",25));
-console.log(productManager.updateProduct(1,"Malvón","Este es un producto prueba",200,"Sin imagen","asd2",25))
-console.log(productManager.deleteProduct(5))
-console.log(productManager.getProducts());
-console.log(productManager.getProductById(1));

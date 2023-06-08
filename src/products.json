@@ -43,5 +43,50 @@
 		"thumbnail": "Sin imagen",
 		"code": "asd5",
 		"stock": 25
+	},
+	{
+		"id": 5,
+		"title": "Jazmin",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd6",
+		"stock": 25
+	},
+	{
+		"id": 6,
+		"title": "Calandrina",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd7",
+		"stock": 25
+	},
+	{
+		"id": 7,
+		"title": "Nopal",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd8",
+		"stock": 25
+	},
+	{
+		"id": 8,
+		"title": "Jade",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd9",
+		"stock": 25
+	},
+	{
+		"id": 9,
+		"title": "cactus cresta",
+		"description": "Este es un producto prueba",
+		"price": 200,
+		"thumbnail": "Sin imagen",
+		"code": "asd10",
+		"stock": 25
 	}
 ]
