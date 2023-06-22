@@ -1,0 +1,45 @@
+<div>
+  <form class="card" id="form">
+    <h3>Agregar un producto</h3>
+    <div class="mb-3">
+      <label for="title" class="form-label">Título</label>
+      <input type="text" class="form-control" id="title" >
+      <label for="description" class="form-label">Descripción</label>
+      <input type="text" class="form-control" id="description" >
+      <label for="category" class="form-label">Categoría</label>
+      <input type="text" class="form-control" id="category" >
+      <label for="price" class="form-label">Precio</label>
+      <input type="number" class="form-control" id="price" >
+      <label for="stock" class="form-label">Stock</label>
+      <input type="number" class="form-control" id="stock" >
+      <label for="code" class="form-label">Código</label>
+      <input type="text" class="form-control" id="code" >
+      <label for="status" class="form-label">Status (true or false)</label>
+      <input type="text" class="form-control" id="status" >
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+  </form>
+  <form class="card" id="form1">
+    <h3>Eliminar un producto</h3>
+    <label for="item-id" class="form-label">Inserte el ID del producto</label>
+    <input type="text" class="form-control" id="item-id" >
+    <button type="submit" class="btn btn-primary">Eliminar</button>
+  </form>
+  {{#each products}}
+    <div class="card m-10">
+      <div class="card-header">
+        {{this.title}}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{this.description}}</p>
+        <p class="card-text">{{this.price}}</p>
+        <p class="card-text">{{this.category}}</p>
+        <p class="card-text">{{this.stock}}</p>
+        <p class="card-text">{{this.code}}</p>
+        <p class="card-text">{{this.id}}</p>
+      </div>
+    </div>
+  {{/each}}
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="index.js"></script>
